@@ -1,0 +1,48 @@
+.test {
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 24px;
+  background-color: #4680ff;
+}
+.imgDriver {
+  border-image-outset: 50px;
+  border-color: #000000;
+  width: 20%;
+  height: 20%;
+  position: center;
+  margin-left: 5%;
+  padding-right: 5%;
+}
+/*
+
+.imgConveyor {
+  border-radius: 50%;
+  width: 20%;
+  height: 20%;
+  margin-left: 80%;
+}
+*/
+
+.alert{
+  color: red;
+  text-align: center;
+  align-content: center;
+}
+
+.test4{
+  text-align: center;
+  font-size: 35px;
+  margin-left: 0%;
+  margin-right: 0%;
+  color: white;
+  background-color: #4680ff;
+}
+.imgSensor {
+  border-image-outset: 60px;
+  border-color: #000000;
+  width: 40%;
+  height: 40%;
+  position: center;
+  margin-left: 30%;
+  margin-right: 0%;
+}

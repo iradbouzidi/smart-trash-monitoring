@@ -1,0 +1,120 @@
+<div class="col-md-12">
+  <button type="button" (click)="AddTrash()" class="  btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>  Add Trash Can</button>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <!-- [ Hover-table ] start -->
+  <div class="col-xl-12">
+    <app-card cardTitle="List of Trash Cans" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-hover" >
+          <thead>
+          <tr class="test">
+            <th>#</th>
+            <th>City</th>
+            <th>Municipality</th>
+            <th>Area</th>
+            <th>Added Date</th>
+            <th>Flamme Status</th>
+            <th>Gas Status</th>
+            <th>Level Status</th>
+            <th>Weight Status</th>
+            <th></th>
+            <th></th>
+            <!--<th>Gas Status</th>
+            <th>Flame Status</th>
+            <th>Level Status</th>
+            <th>Weight Status</th>-->
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let trash of trashs">
+            <td class="feather icon-trash-2"><!--{{ trash._id.slice(16,24) }}--></td>
+            <td>{{ trash.cityT }}</td>
+            <td>{{ trash.municipalityT }}</td>
+            <td>{{ trash.areaT }}</td>
+            <td class="feather icon-calendar">{{ trash.addedDateT.slice(4,16)}}</td>
+            <td>
+              <span *ngFor=" let flamme of flammes">
+                <span *ngIf="trash.flammeId==flamme._id">
+                  <span *ngIf="flamme.statusF == 'CRITICAL'" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{flamme.statusF}}
+                  </span>
+                  <span *ngIf="flamme.statusF == 'RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{flamme.statusF}}
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td>
+              <span *ngFor=" let gas of gases">
+                <span *ngIf="trash.gasId==gas._id">
+                                <span *ngIf="gas.statusG == 'CRITICAL'" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{gas.statusG}}
+                  </span>
+                  <span *ngIf="gas.statusG== 'RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{gas.statusG}}
+                  </span>
+            </span></span></td>
+            <td>
+              <span *ngFor=" let level of levels">
+                <span *ngIf="trash.levelId==level._id">
+                  <span *ngIf="level.statusL > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                  <span *ngIf="level.statusL > 50 && level.statusL< 70" style="background-color: darkorange; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                  <span *ngIf="level.statusL < 50" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                </span>
+              </span>
+            </td>
+
+
+            <td>
+              <span *ngFor=" let weight of weights">
+                <span *ngIf="trash.weightId==weight._id">
+                  <span *ngIf="weight.statusW > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                  <span *ngIf="weight.statusW > 50 && weight.statusW< 70" style="background-color: darkorange; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                  <span *ngIf="weight.statusW < 50" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                </span>
+              </span>
+            </td>
+            <!--            <td>{{ trash.gasId.slice(16,24)}}</td>
+                        <td>{{ trash.levelId.slice(16,24) }}</td>
+                        <td>{{ trash.weightId.slice(16,24) }}</td>-->
+            <td>
+              <button type="button"
+                      (click)="updateFlammeA(trash.flammeId)"
+                      (click)="updateGasA(trash.gasId)"
+                      (click)="updateWeightA(trash.weightId)"
+                      (click)="updateLevelA(trash.levelId)"
+                      (click)="DeleteTrash(trash._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Del Trash Only</button><a></a>
+            </td>
+            <td><button type="button"
+                        (click)="DeleteFlamme(trash.flammeId)"
+                        (click)="DeleteGas(trash.gasId)"
+                        (click)="DeleteWeight(trash.weightId)"
+                        (click)="DeleteLevel(trash.levelId)"
+                        (click)="DeleteTrash(trash._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Del All</button>
+            </td>
+          </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ Hover-table ] end -->
+</div>

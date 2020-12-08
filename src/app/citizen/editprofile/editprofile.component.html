@@ -1,0 +1,234 @@
+<!--<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Much longer nav link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>-->
+
+<div class="container emp-profile">
+  <!--  <form method="post">-->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <div>
+          <div class="col-md-12" *ngFor="let usr of users">
+            <p>
+              <span *ngFor=" let curr of clients">
+              <span *ngIf="curr.emailC == usr.email">
+                <img src="{{curr.imageC}}" class="avatar img-circle img-thumbnail" alt="avatar"/>
+              </span>
+              </span>
+            </p>
+            <h6>Upload a different photo...</h6>
+            <input #fileInput type="file" id="Image" name="Image"
+                   (change)="onFileChange($event)" class="text-center center-block file-upload search">
+            <hr>
+            <span *ngFor=" let curr of clients"><span *ngIf="curr.emailC == usr.email">
+              <button type="submit" class="submit" [hidden]="!valid" (click)="changeImg($event,curr._id)" class="feather icon-check-circle validate col-md-5 btn-primary"><br>validate
+                <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+              </button>
+              <button type="button" class="clear" [hidden]="!valid" (click)="clearFile()" class="feather icon-x-square clear col-md-5 btn-primary"><br>Clear file</button>
+            </span></span>
+            <hr><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head">
+        <br><p></p>
+        <h4 *ngFor="let usr of users">
+          <span *ngFor="let cl of clients">
+            <span *ngIf="usr.email == cl.emailC">
+              <label>hello {{cl.userNameC}}</label>
+            </span>
+          </span>
+          <br>
+          <p></p>
+        </h4>
+        <h5>Edit your profile as you wish!</h5>
+        <p class="proile-rating"></p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <!--<li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+          </li>-->
+          <!--<li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+    <!--<div class="col-md-2">
+      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" (click)="editprofile()"/>
+    </div>-->
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-work" >
+        <p></p>
+<!--                  <a href="">Website Link</a><br/>
+                  <a href="">Bootsnipp Profile</a><br/>
+                  <a href="">Bootply Profile</a>-->
+        <div><hr color="#0062cc"></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="profile"
+                   value="Profile" (click)="profile()"/>
+          </div>
+        </div>
+
+        <div><hr col></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="addreport"
+                   value="Add Report" (click)="addreport()"/>
+          </div>
+        </div>
+
+        <div><hr col></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="listreports"
+                   value="Visualize Reports" (click)="listreports()"/>
+          </div>
+        </div>
+
+        <div><hr></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="listreports"
+                   value="Log Out" (click)="logout()"/>
+          </div>
+        </div>
+        <div><hr color="#0062cc"></div>
+<!--
+                  <p>SKILLS</p>
+                  <a href="">Web Designer</a><br/>
+                  <a href="">Web Developer</a><br/>
+                  <a href="">WordPress</a><br/>
+                  <a href="">WooCommerce</a><br/>
+                  <a href="">PHP, .Net</a><br/>-->
+      </div>
+    </div>
+    <div class="col-md-8" *ngFor="let usr of users">
+      <div class="tab-content profile-tab" id="myTabContent" *ngFor=" let curr of clients" >
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" *ngIf="curr.emailC ==usr.email" >
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Username</label>
+            </div>
+            <div class="col-md-6">
+                <input #username class="form-control" type="text"  value="{{curr.userNameC}}"></div></div>
+          <p></p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">First Name</label>
+            </div>
+            <div class="col-md-6">
+                <input #firstname class="form-control" type="text" value="{{curr.firstNameC}}"></div></div>
+          <p></p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Last Name</label>
+            </div>
+            <div class="col-md-6">
+                <input #lastname class="form-control" type="text" value="{{curr.lastNameC}}"></div></div>
+          <p></p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Email</label>
+            </div>
+            <div class="col-md-6">
+                <input #email class="form-control" type="text" value="{{curr.emailC}}" disabled></div></div>
+          <p></p>
+
+<!--          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Old Password</label>
+            </div>
+            <div class="col-md-6">
+              <div *ngFor=" let curr of clients">
+                <div *ngIf="curr.emailC ==usr.email">
+                <input #opwd class="form-control" type="text" value="{{curr.userNameC}}"></div></div>
+            </div>
+          </div>
+          <p></p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">New Password</label>
+            </div>
+            <div class="col-md-6">
+              <div *ngFor=" let curr of clients">
+                <div *ngIf="curr.emailC ==usr.email">
+                <input #npwd class="form-control" type="text" value="{{curr.}}"></div></div>
+            </div>
+          </div>
+          <p></p>-->
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Cin</label>
+            </div>
+            <div class="col-md-6">
+                <input #cin class="form-control" type="text" value="{{curr.cinC}}" disabled></div></div>
+          <p></p>
+
+<!--          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Birth Date</label>
+            </div>
+            <div class="col-md-6">
+              <div >
+                <div >
+                <input #birthD class="form-control" type="Date" value="{{curr.birthDateC}}" hidden></div></div>
+            </div>
+          </div>
+          <p></p>-->
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">City</label>
+            </div>
+            <div class="col-md-6" >
+              <select #city class="form-control" id="City" aria-describedby="City">
+                <option *ngFor="let region of regions">{{region.Label}}</option>
+              </select>
+            </div>
+          </div>
+          <p></p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Address</label>
+            </div>
+            <div class="col-md-6">
+                <input #address class="form-control" type="text" value="{{curr.addressC}}">
+            </div>
+          </div>
+          <div><hr color="#0062cc"></div>
+            <div class="col-md-12">
+              <button type="button" class="edit-profile-btn"
+                      (click)="saveeditprofile(curr._id,username.value,firstname.value,lastname.value,email.value,cin.value,city.value,address.value)">Save Changes</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--  </form>-->
+
+</div>
+

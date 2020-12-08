@@ -1,0 +1,38 @@
+<div class="test">
+  <div class="col-sm-9">
+    <app-card cardTitle="Add Equipements" [options]="false">
+      <h5>Add Sensor</h5>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="javascript:">
+
+            <div class="form-group">
+              <label for="addedDate">Added Date</label>
+              <input type="date" class="form-control" id="addedDate" aria-describedby="addedDate" placeholder="">
+              <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+
+            <div class="form-group">
+              <label for="SensorType">Sensor Type</label>
+              <select class="form-control" id="SensorType">
+                <option>Flame Sensor</option>
+                <option>Gas Sensor</option>
+                <option>Weight Sensor</option>
+                <option>Level Sensor</option>
+              </select>
+            </div>
+
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Validate</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

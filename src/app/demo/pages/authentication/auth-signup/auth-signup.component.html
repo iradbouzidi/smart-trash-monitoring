@@ -1,0 +1,121 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <img src="assets/images/logo_pi.png" alt="" class="img-fluid mb-4 logo">
+            <h4 class="mb-3 f-w-400">Sign up</h4>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-user"></i></span>
+              </div>
+              <input #usernameInput type="text" class="form-control" placeholder="Username" [disabled]="verified">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-mail"></i></span>
+              </div>
+              <input #emailInput type="email" class="form-control" placeholder="Email address" [disabled]="verified">
+            </div>
+              <a class="alert" form [hidden]="hideemail">* Please enter a valid email address</a>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-lock"></i></span>
+              </div>
+              <input #passwordInput type="password" class="form-control" placeholder="Password" [disabled]="verified">
+            </div>
+                <a class="alert" form [hidden]="hidepass">* Password must containt at least one UPPERCASE one lowercase and a digit
+                <br>* Minimal length should be 8</a>
+            <div>
+            <button
+              (click)="Verif(emailInput.value,passwordInput.value)"
+                     form [hidden]="isNotDisplayed"
+                     class="btn btn-primary btn-block mb-4">Sign up</button>            </div>
+            <p class="mb-2" form [hidden]="isNotDisplayed">Already have an account? <a [routerLink]="['/auth/signin']" class="f-w-400">Signin</a></p>
+
+            </div>
+          <div form [hidden]="isDisplayed">
+            <div class="col-md-12">
+              <div class="card-body">
+              <!--
+                          <img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
+              -->
+              <h2 class="mb-3 f-w-400">Create your Profile</h2>
+                <h6>Please fill the following information to create your client space</h6>
+              <h6>First Name</h6>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-user"></i></span>
+                </div>
+                <input #CltFN type="text" class="form-control" placeholder="First Name">
+              </div>
+              <h6>Last Name</h6>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-user"></i></span>
+                </div>
+                <input #CltLN type="text" class="form-control" placeholder="Last Name">
+              </div>
+              <h6>Cin</h6>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-filter"></i></span>
+                </div>
+                <input #CltCin type="number" class="form-control" placeholder="Cin">
+              </div>
+                <a class="alert" form [hidden]="hidecin">* Please enter a valid CIN number (8 digits) </a>
+              <h6>Date Of Birth</h6>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-calendar"></i></span>
+                </div>
+                <input #CltBD type="Date" class="form-control" placeholder="Date Of Birth">
+              </div>
+                <a class="alert" form [hidden]="hidedb">* Please enter a valid birthdate </a>
+             <!-- <h6>Email</h6>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-mail"></i></span>
+                </div>
+                <input #CltEmail type="email" class="form-control" placeholder="Email">
+              </div>-->
+              <h6>City</h6>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-flag"></i></span>
+                </div>
+                <select #CltC class="form-control" id="City" aria-describedby="City">
+                  <option *ngFor="let region of regions">{{region.Label}}</option>
+                </select>
+              </div>
+              <h6>Address</h6>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-more-vertical"></i></span>
+                </div>
+                <input #CltAdd type="text" class="form-control" placeholder="Address">
+              </div>
+
+              <div class="form-group text-left mt-2">
+                <div class="checkbox checkbox-primary d-inline">
+                  <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2">
+                  <label for="checkbox-fill-2" class="cr">I'm not a robot</label>
+                </div>
+            </div>
+            <button
+              (click)="onSignupButtonClicked(emailInput.value, passwordInput.value)"
+              (click)="Verif2(CltFN.value,CltLN.value,CltCin.value,CltBD.value,emailInput.value,CltC.value,
+            CltAdd.value,usernameInput.value)"
+                    type="submit" class="btn btn-primary">
+              Submit
+            </button>
+                <p class="mb-2" form [hidden]="isDisplayed">Already have an account? <a [routerLink]="['/auth/signin']" class="f-w-400">Signin</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

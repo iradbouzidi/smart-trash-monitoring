@@ -1,0 +1,57 @@
+<div class="test">
+  <div class="col-sm-12">
+    <app-card cardTitle="Add Equipements" [options]="false">
+      <div>
+        <h5 class="test4">Add a Gas Sensor</h5>
+      </div>
+      <hr>
+      <img  src="assets/images/gas.png" alt="" class="imgSensor">
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="javascript:">
+
+
+
+            <!--            <div class="form-group">
+                          <label for="addedDate">Added Date</label>
+                          <input type="date" class="form-control" id="addedDate" aria-describedby="addedDate" placeholder="">
+                          &lt;!&ndash;<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;
+                        </div>-->
+
+            <div class="form-group">
+              <label for="Depot">Depot</label>
+              <select #GasDep class="form-control" id="Depot">
+                <option>Depot A</option>
+                <option>Depot B</option>
+                <option>Depot C</option>
+                <option>Depot D</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Rayon">Rayon</label>
+              <select #GasRay class="form-control" id="Rayon">
+                <option>Rayon 1</option>
+                <option>Rayon 2</option>
+                <option>Rayon 3</option>
+                <option>Rayon 4</option>
+              </select>
+            </div>
+
+            <!--<div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Validate</label>
+            </div>-->
+
+            <div class="col-md-12">
+              <button (click)="AddGas(GasDep.value,GasRay.value)" type="submit" class="btn btn-block btn-primary mb-4">
+                <i class="feather icon-cpu"></i> Add a Gas Sensor </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

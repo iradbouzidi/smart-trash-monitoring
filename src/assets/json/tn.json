@@ -1,0 +1,127 @@
+[
+  {
+    "Label": "Grand Tunis",
+    "Latitude": 36.797013,
+    "Longitude": 10.181394
+  },
+  {
+    "Label": "Sousse",
+    "Latitude": 35.8245,
+    "Longitude": 10.6346
+  },
+  {
+    "Label": "Nabeul",
+    "Latitude": 36.4513,
+    "Longitude": 10.7357
+  },
+  {
+    "Label": "Ariana",
+    "Latitude": 36.863842,
+    "Longitude": 10.174736
+  },
+  {
+    "Label": "Ben Arous",
+    "Latitude": 36.755755,
+    "Longitude": 10.231217
+  },
+  {
+    "Label": "Bizerte",
+    "Latitude": 37.2667,
+    "Longitude": 9.8667
+  },
+  {
+    "Label": "Gabes",
+    "Latitude": 33.8933,
+    "Longitude": 10.1029
+  },
+  {
+    "Label": "Gafsa",
+    "Latitude": 34.3936,
+    "Longitude": 8.8004
+  },
+  {
+    "Label": "Tataouine",
+    "Latitude": 32.9033,
+    "Longitude": 10.5296
+  },
+  {
+    "Label": "Mannouba",
+    "Latitude": 36.8021,
+    "Longitude": 10.1027
+  },
+  {
+    "Label": "Tozeur",
+    "Latitude": 33.9389,
+    "Longitude": 8.1014
+  },
+  {
+    "Label": "Kasserine",
+    "Latitude": 35.0809,
+    "Longitude": 8.6601
+  },
+  {
+    "Label": "Médenine",
+    "Latitude": 33.3466181,
+    "Longitude": 10.3511805
+  },
+  {
+    "Label": "Siliana",
+    "Latitude": 35.9828077,
+    "Longitude": 8.7834739
+  },
+  {
+    "Label": "Kairouan",
+    "Latitude": 35.6733929,
+    "Longitude": 10.0694277
+  },
+  {
+    "Label": "Béja",
+    "Latitude": 36.7297048,
+    "Longitude": 9.1525828
+  },
+  {
+    "Label": "Kébili",
+    "Latitude": 33.7036675,
+    "Longitude": 8.9560029
+  },
+  {
+    "Label": "Le Kef",
+    "Latitude": 36.1668561,
+    "Longitude": 8.6673017
+  },
+  {
+    "Label": "Sfax",
+    "Latitude": 34.7613744,
+    "Longitude": 10.6630584
+  },
+  {
+    "Label": "Jendouba",
+    "Latitude": 36.5032819,
+    "Longitude": 8.7438721
+  },
+  {
+    "Label": "Zarzis",
+    "Latitude": 33.5025664,
+    "Longitude": 11.0497993
+  },
+  {
+    "Label": "Mahdia",
+    "Latitude": 35.5047272,
+    "Longitude": 11.0170375
+  },
+  {
+    "Label": "Monastir",
+    "Latitude": 35.7542668,
+    "Longitude": 10.7754201
+  },
+  {
+    "Label": "Sidi Bouzid",
+    "Latitude": 35.0363845,
+    "Longitude": 9.4420182
+  },
+  {
+    "Label": "Zaghouan",
+    "Latitude": 36.3528154,
+    "Longitude": 9.4230382
+  }
+]

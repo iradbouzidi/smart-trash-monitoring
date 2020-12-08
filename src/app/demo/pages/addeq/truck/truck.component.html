@@ -1,0 +1,100 @@
+<div class="test">
+  <div class="col-sm-12">
+    <app-card cardTitle="Add Equipements" [options]="false">
+      <div>
+        <h5 class="test4">Add a Truck </h5>
+      </div>
+      <hr>
+      <img src="assets/images/trucks.png" alt="" class="imgSensor">
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="javascript:">
+
+            <!--
+                        <div class="form-group">
+                          <label><h6>title</h6></label>
+                          <input #trashTitleInput type="text" class="form-control"  aria-describedby="addedDate" placeholder="">
+                        </div>
+            -->
+            <div class="form-group">
+              <label for="Area"><h6>Working Area</h6></label>
+              <select #TArea class="form-control" id="Area">
+                <option>Area 1</option>
+                <option>Area 2</option>
+                <option>Area 3</option>
+                <option>Area 4</option>
+              </select>
+
+            </div>
+            <div>
+              <div class="form-group">
+                <img *ngIf="TruckDriver.value.length != 0" for="Conveyor" src="assets/images/driver.png" alt="" class="imgDriver">
+                <label *ngIf="TruckDriver.value.length != 0" for="Conveyor" for="Driver">
+                  <h5 style="color: green">Your truck driver will be affected automatically</h5>
+                </label>
+
+                <select #TruckDriver class="form-control" id="Driver" [hidden]="hide">
+                  <option *ngFor="let TD of drivers" >{{ TD._id }}</option>
+                </select>
+                <img *ngIf="TruckDriver.value.length == 0"  src="assets/images/notDriver.png" alt="" class="imgDriver">
+                <label>
+                  <h5 class="alert" *ngIf="TruckDriver.value.length == 0">*No Drivers Available, You have to recrute some</h5>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <img *ngIf="TruckConveyor.value.length != 0"  src="assets/images/conveyor.png" alt="" class="imgDriver">
+                <label *ngIf="TruckConveyor.value.length != 0" for="Conveyor">
+                  <h5 style="color: green">The conveyor will be also afected automatically</h5>
+                </label>
+
+                <select #TruckConveyor class="form-control" id="Conveyor"  [hidden]="hide">
+                  <option *ngFor="let TC of conveyors" >{{ TC._id }}</option>
+                </select>
+
+                <img *ngIf="TruckConveyor.value.length == 0"  src="assets/images/notConveyor.png" alt="" class="imgDriver">
+                <label  *ngIf="TruckConveyor.value.length == 0" >
+                  <h5 class="alert">*No Conveyors Available, You have to recrute some</h5>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <img *ngIf="TruckLevel.value.length != 0"  src="assets/images/level.png" alt="" class="imgDriver">
+                <label for="level" *ngIf="TruckLevel.value.length != 0">
+                  <h5 style="color: green">Your Truck will be automatically equiped by an available <br> Level Sensor</h5>
+                </label>
+                <select #TruckLevel class="form-control" id="level" size="1" disabled [hidden]="hide">
+                  <option *ngFor="let TL of levels" >{{ TL._id }}</option>
+                </select>
+                <img  *ngIf="TruckLevel.value.length == 0" src="assets/images/notLevel.png" alt="" class="imgDriver">
+                <label *ngIf="TruckLevel.value.length == 0">
+                  <h5 class="alert">*All Level sensors are already used</h5>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <img *ngIf="TruckWeight.value.length != 0"  src="assets/images/weight.png" alt="" class="imgDriver">
+                <label for="weight" *ngIf="TruckWeight.value.length != 0">
+                  <h5 style="color: green">Your Truck will be automatically equiped by an available <br> Weight Sensor</h5>
+                </label>
+                <select #TruckWeight class="form-control" id="weight" size="1" disabled [hidden]="hide">
+                  <option *ngFor="let TW of weights" >{{ TW._id }}</option>
+                </select>
+                <img  *ngIf="TruckWeight.value.length == 0" src="assets/images/notWeight.png" alt="" class="imgDriver">
+                <label *ngIf="TruckWeight.value.length == 0">
+                  <h5 class="alert" >*All Weight sensors are already used</h5>
+                </label>
+              </div>
+            </div>
+            <button
+              (click)="createTruck(TArea.value,TruckDriver.value,TruckConveyor.value,TruckLevel.value,TruckWeight.value)"
+              class="btn btn-block btn-primary mb-4 feather icon-stop-circle">
+              Add Truck</button>
+
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle="List of Citizens Reports" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover" id="client-report">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Subject</th>
+            <th>Sender</th>
+            <th>Email</th>
+            <th>Added Date</th>
+            <th>Status</th>
+            <th>content</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+
+          <tbody *ngFor="let cl of clients">
+          <tr *ngFor="let rep of reports">
+            <td *ngIf="cl.emailC==rep.emailR" class="feather icon-alert-triangle"><!--{{rep._id.slice(20,24)}}--></td>
+            <td *ngIf="cl.emailC==rep.emailR">{{rep.subR}}</td>
+            <td *ngIf="cl.emailC==rep.emailR">{{cl.userNameC}}</td>
+            <td *ngIf="cl.emailC==rep.emailR">{{rep.emailR}}</td>
+            <td *ngIf="cl.emailC==rep.emailR">{{rep.addedDateR.slice(4,16)}}</td>
+            <td *ngIf="cl.emailC==rep.emailR">{{rep.statusR}}</td>
+            <td *ngIf="cl.emailC==rep.emailR">{{rep.repR.slice(0,10)}}......</td>
+            <td *ngIf="cl.emailC==rep.emailR">
+              <button type="button" (click)="ViewRep(rep.emailR,rep.repR,rep.subR)"
+                                    (click)="updateRep(rep._id)"
+
+                      class="btn btn-primary">
+                <i class="feather icon-eye"></i></button>
+              <button type="button" (click)="deleteRep(rep._id)"
+
+                      class="btn btn-primary" [hidden]="rep.statusR == 'UnSeen'">
+                <i class="feather icon-delete"></i></button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+        <div class="col-md-12">
+          <button type="button" (click)="RepCexportexcel()" class="btn btn-block btn-primary mb-4">
+            <i class="feather icon-download"></i> Export To Excel File</button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle="List of workers reports" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover" id="emp-report">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Subject</th>
+            <th>Sender</th>
+            <th>Email</th>
+            <th>Added Date</th>
+            <th>Status</th>
+            <th>content</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+
+          <tbody *ngFor="let emp of workers">
+          <tr *ngFor="let rep of reportsW">
+            <td *ngIf="emp.emailE==rep.emailRW" class="feather icon-alert-triangle"><!--{{rep._id.slice(20,24)}}--></td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{rep.subRW}}</td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{emp.userNameE}}</td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{rep.emailRW}}</td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{rep.addedDateRW.slice(4,16)}}</td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{rep.statusRW}}</td>
+            <td *ngIf="emp.emailE==rep.emailRW">{{rep.repRW.slice(0,10)}}......</td>
+<!--            <td *ngIf="emp.emailE==rep.emailRW" hidden>{{rep.repRW}}</td>-->
+            <td *ngIf="emp.emailE==rep.emailRW">
+              <button type="button" (click)="ViewRepW(rep.emailRW,rep.repRW,rep.subRW)"
+                      (click)="updateRepW(rep._id)"
+
+                      class="btn btn-primary">
+                <i class="feather icon-eye"></i></button>
+              <button type="button" (click)="deleteRepW(rep._id)"
+
+                      class="btn btn-primary" [hidden]="rep.statusRW == 'UnSeen'">
+                <i class="feather icon-delete"></i></button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+        <div class="col-md-12">
+          <button type="button" (click)="RepEexportexcel()" class="btn btn-block btn-primary mb-4">
+            <i class="feather icon-download"></i> Export To Excel File</button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

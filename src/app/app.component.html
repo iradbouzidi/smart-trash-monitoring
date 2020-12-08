@@ -1,0 +1,6 @@
+<router-outlet  *ngIf="router.url!='/auth/'">
+  <app-spinner ></app-spinner>
+</router-outlet>
+<router-outlet *ngIf="router.url=='/auth/**'">
+  <app-auth-signin></app-auth-signin>
+</router-outlet>

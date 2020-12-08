@@ -1,0 +1,221 @@
+<!--<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Much longer nav link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>-->
+
+<div class="container emp-profile">
+  <!--  <form method="post">-->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+<!-- <img src="assets/images/logo_pi.png" alt=""/>-->
+        <div>
+          <div class="col-md-12" *ngFor="let usr of users">
+            <p><span *ngFor=" let curr of clients">
+              <span *ngIf="curr.emailC == usr.email">
+                <img src="{{curr.imageC}}" class="avatar img-circle img-thumbnail" alt="avatar"/>
+              </span></span></p>
+          </div>
+        </div>
+<!--        <div>
+          <div class="col-md-12" *ngFor="let usr of users">
+            <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC == usr.email"><img src="{{curr.imageC}}" class="avatar img-circle img-thumbnail" alt="avatar"/></span></span></p>
+            <h6>Upload a different photo...</h6>
+            <input #fileInput type="file" id="Image" name="Image"
+                   (change)="onFileChange($event)" class="text-center center-block file-upload">
+            <span *ngFor=" let curr of clients"><span *ngIf="curr.emailC == usr.email">
+              <button type="submit" class="submit" [disabled]="!valid" (click)="changeImg($event,curr._id)">Submit
+                <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+              </button>
+              <button type="button" class="clear" [disabled]="!valid" (click)="clearFile()">Clear file</button>
+            </span></span>
+            <hr><br>
+          </div>
+        </div>-->
+<!--
+
+        <div class="text-center">
+          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          <input type="file" class="text-center center-block file-upload">
+        </div><hr><br>
+-->
+
+        <!--<div class="file btn btn-lg btn-primary">
+          Change Photo
+          <input type="file" name="file"/>
+        </div>-->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head" >
+        <br><p></p>
+        <h4 *ngFor="let usr of users">
+          <span *ngFor="let cl of clients">
+            <span *ngIf="usr.email == cl.emailC">
+              <label>hello {{cl.userNameC}}</label>
+            </span>
+          </span>
+          <br>
+          <p></p>
+        </h4>
+
+        <h5>Welcome to your space!</h5>
+        <p class="proile-rating"></p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <!--<li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+          </li>-->
+          <!--<li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+    <!--<div class="col-md-2">
+      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" (click)="editprofile()"/>
+    </div>-->
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-work">
+        <p></p>
+        <!--          <a href="">Website Link</a><br/>-->
+        <!--          <a href="">Bootsnipp Profile</a><br/>-->
+        <!--          <a href="">Bootply Profile</a>-->
+        <div><hr color="#0062cc"></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="editprofile"
+                   value="Edit Profile" (click)="editprofile()"/>
+          </div>
+        </div>
+
+        <div><hr col></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="pplnear"
+                   value="People Around Me" (click)="pplnear()"/>
+          </div>
+        </div>
+
+        <div><hr col></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="addreport"
+                   value="Add Report" (click)="addreport()"/>
+          </div>
+        </div>
+
+        <div><hr col></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="listreports"
+                   value="Visualize Reports" (click)="listreports()"/>
+          </div>
+        </div>
+        <div><hr color="#0062cc"></div>
+
+        <!--          <p>SKILLS</p>-->
+        <!--          <a href="">Web Designer</a><br/>-->
+        <!--          <a href="">Web Developer</a><br/>-->
+        <!--          <a href="">WordPress</a><br/>-->
+        <!--          <a href="">WooCommerce</a><br/>-->
+        <!--          <a href="">PHP, .Net</a><br/>-->
+      </div>
+    </div>
+    <div class="col-md-8">
+      <span>
+      <div class="tab-content profile-tab" id="myTabContent" >
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"  *ngFor="let usr of users" >
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Username</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC ==usr.email">{{curr.userNameC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">First Name</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC==usr.email">{{curr.firstNameC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Last Name</label>
+            </div>
+            <div class="col-md-6">
+                <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC==usr.email">{{curr.lastNameC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Email</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC==usr.email">{{curr.emailC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Cin</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC==usr.email">{{curr.cinC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Birth Date</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC==usr.email">{{curr.birthDateC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">City</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC == usr.email">{{curr.cityC}}</span></span></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="labels">Address</label>
+            </div>
+            <div class="col-md-6">
+              <p><span *ngFor=" let curr of clients"><span *ngIf="curr.emailC == usr.email">{{curr.addressC}}</span></span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </span>
+    </div>
+  </div>
+  <!--  </form>-->
+
+</div>
+

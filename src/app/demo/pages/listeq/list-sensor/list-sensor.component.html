@@ -1,0 +1,453 @@
+<!--<div class="col-md-12">
+  <button type="button" (click)="AddSensor()" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>  Add Sensor</button>
+</div>
+<br>
+<br>-->
+<div class="test4">
+  <div class="form-group">
+    <div class="col-md-12">
+      <h6 for="Area" class="test4">Area</h6>
+      <select #Sen class="form-control" id="Area" aria-describedby="Area" >
+        <option>All</option>
+        <option>Flamme</option>
+        <option>Weight</option>
+        <option>Gas</option>
+        <option>Level</option>
+      </select>
+      <h6 for="Area" class="test4">Choose the Type Of Sensor </h6>
+    </div>
+  </div>
+</div>
+<img  *ngIf="Sen.value == 'All'" src="assets/images/All.png" alt="" class="imgAll">
+<img  *ngIf="Sen.value == 'Flamme'" src="assets/images/flamme.png" alt="" class="imgSensor">
+<img  *ngIf="Sen.value == 'Weight'" src="assets/images/weight.png" alt="" class="imgSensor">
+<img  *ngIf="Sen.value == 'Gas'" src="assets/images/gas.png" alt="" class="imgSensor">
+<img  *ngIf="Sen.value == 'Level'" src="assets/images/level.png" alt="" class="imgSensor">
+<div class="row" [hidden]= "Sen.value != 'All'">
+  <!--   [ weight-table ] start-->
+  <div class="col-md-12" >
+
+    <app-card cardTitle="List of Weight Sensors" blockClass="table-border-style" >
+      <div class="table-bordered">
+
+        <table class="table table-weight">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let Wei of weights">
+            <td>{{ Wei._id.slice(16,24)}}</td>
+            <td>{{ Wei.addedDateW.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="Wei.availabiltyW == 'In use'" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Wei.availabiltyW}}
+              </span>
+              <span *ngIf="Wei.availabiltyW == 'Available !'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Wei.availabiltyW}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="Wei.statusW > 70" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+              <span *ngIf="Wei.statusW < 70 && Wei.statusW >50 " style="background-color: #ff6e01;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+              <span *ngIf="Wei.statusW < 50 " style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+            </td>
+            <td>{{ Wei.depotW}}</td>
+            <td>{{ Wei.rayonW}}</td>
+            <td>{{ Wei.trashIdW}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteWeight(Wei._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddWeight()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Weight Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--   [ weight-table ] end-->
+
+
+  <!--   [ gas-table ] start-->
+  <div class="col-md-12">
+    <app-card cardTitle="List of Gas Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-Gas">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let gas of gases">
+            <td>{{ gas._id.slice(16,24)}}</td>
+            <td>{{ gas.addedDateG.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="gas.availabiltyG == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{gas.availabiltyG}}
+              </span>
+              <span *ngIf="gas.availabiltyG == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.availabiltyG}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="gas.statusG =='CRITICAL'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.statusG}}
+              </span>
+              <span *ngIf="gas.statusG =='RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.statusG}}
+              </span>
+            </td>
+            <td>{{ gas.depotG }}</td>
+            <td>{{ gas.rayonG}}</td>
+            <td>{{ gas.trashIdG}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteGas(gas._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddGas()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Gas Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--   [ gas-table ] end-->
+
+
+  <!--   [ level-table ] start-->
+  <div class="col-md-12">
+    <app-card cardTitle="List of Level Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-Level">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let Lv of levels">
+            <td>{{ Lv._id.slice(16,24) }}</td>
+            <td>{{ Lv.addedDateL.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="Lv.availabiltyL == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{Lv.availabiltyL}}
+              </span>
+              <span *ngIf="Lv.availabiltyL == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Lv.availabiltyL}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="Lv.statusL > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{Lv.statusL}}
+              </span>
+              <span *ngIf="Lv.statusL < 70 && Lv.statusL >50 " style="background-color: #ff6e01;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Lv.statusL}}
+              </span>
+              <span *ngIf="Lv.statusL < 50 " style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Lv.statusL}}
+              </span>
+            </td>
+            <td>{{ Lv.depotL }}</td>
+            <td>{{ Lv.rayonL}}</td>
+            <td>{{ Lv.trashIdL}}</td>
+            <td>
+              <button type="button" (click)="DeleteLevel(Lv._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddLevel()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Level Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--[ level-table ] end-->
+
+
+  <!--   [ flame-table ] start-->
+  <div class="col-md-12">
+    <app-card cardTitle="List of Flame Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-flame">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let fl of flammes">
+            <td>{{ fl._id.slice(16,24) }}</td>
+            <td>{{ fl.addedDateF.slice(4,16) }}</td>
+            <td >
+              <span *ngIf="fl.availabiltyF == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{fl.availabiltyF}}
+              </span>
+              <span *ngIf="fl.availabiltyF == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.availabiltyF}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="fl.statusF =='CRITICAL'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.statusF}}
+              </span>
+              <span *ngIf="fl.statusF =='RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.statusF}}
+              </span>
+            </td>
+            <td>{{ fl.depotF }}</td>
+            <td>{{ fl.rayonF}}</td>
+            <td>{{ fl.trashIdF}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteFlamme(fl._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddFlamme()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Flamme Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ flame-table ] end -->
+</div>
+
+<div class="row" [hidden]= "(Sen.value =='All')">
+  <!--   [ weight-table ] start-->
+  <div class="col-md-12"  [hidden]= "(Sen.value =='Flamme')||(Sen.value == 'Gas')||(Sen.value=='Level')">
+
+    <app-card cardTitle="List of Weight Sensors" blockClass="table-border-style" >
+      <div class="table-bordered">
+
+        <table class="table table-weight">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let Wei of weights">
+            <td>{{ Wei._id.slice(16,24)}}</td>
+            <td>{{ Wei.addedDateW.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="Wei.availabiltyW == 'In use'" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Wei.availabiltyW}}
+              </span>
+              <span *ngIf="Wei.availabiltyW == 'Available !'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Wei.availabiltyW}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="Wei.statusW > 70" style="background-color: red;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+              <span *ngIf="Wei.statusW < 70 && Wei.statusW >50 " style="background-color: #ff6e01;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+              <span *ngIf="Wei.statusW < 50 " style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Wei.statusW}}
+              </span>
+            </td>
+            <td>{{ Wei.depotW}}</td>
+            <td>{{ Wei.rayonW}}</td>
+            <td>{{ Wei.trashIdW}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteWeight(Wei._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddWeight()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Weight Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--   [ weight-table ] end-->
+
+
+  <!--   [ gas-table ] start-->
+  <div class="col-md-12" [hidden]= "(Sen.value =='Flamme')||(Sen.value == 'Weight')||(Sen.value=='Level')">
+    <app-card cardTitle="List of Gas Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-Gas">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let gas of gases">
+            <td>{{ gas._id.slice(16,24)}}</td>
+            <td>{{ gas.addedDateG.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="gas.availabiltyG == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{gas.availabiltyG}}
+              </span>
+              <span *ngIf="gas.availabiltyG == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.availabiltyG}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="gas.statusG =='CRITICAL'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.statusG}}
+              </span>
+              <span *ngIf="gas.statusG =='RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ gas.statusG}}
+              </span>
+            </td>
+            <td>{{ gas.depotG }}</td>
+            <td>{{ gas.rayonG}}</td>
+            <td>{{ gas.trashIdG}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteGas(gas._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddGas()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Gas Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--   [ gas-table ] end-->
+
+
+  <!--   [ level-table ] start-->
+  <div class="col-md-12"[hidden]= "(Sen.value =='Flamme')||(Sen.value == 'Gas')||(Sen.value=='Weight')">
+    <app-card cardTitle="List of Level Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-Level">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let Lv of levels">
+            <td>{{ Lv._id.slice(16,24) }}</td>
+            <td>{{ Lv.addedDateL.slice(4,16)  }}</td>
+            <td >
+              <span *ngIf="Lv.availabiltyL == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{Lv.availabiltyL}}
+              </span>
+              <span *ngIf="Lv.availabiltyL == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Lv.availabiltyL}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="Lv.statusL > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{Lv.statusL}}
+              </span>
+              <span *ngIf="Lv.statusL < 70 && Lv.statusL >50 " style="background-color: #ff6e01;  color: white; font-weight: bold;  text-decoration: underline; font-size: 20px ">{{ Lv.statusL}}
+              </span>
+              <span *ngIf="Lv.statusL < 50 " style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ Lv.statusL}}
+              </span>
+            </td>
+            <td>{{ Lv.depotL }}</td>
+            <td>{{ Lv.rayonL}}</td>
+            <td>{{ Lv.trashIdL}}</td>
+            <td>
+              <button type="button" (click)="DeleteLevel(Lv._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddLevel()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Level Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!--[ level-table ] end-->
+
+
+  <!--   [ flame-table ] start-->
+  <div class="col-md-12"[hidden]= "(Sen.value =='Weight')||(Sen.value == 'Gas')||(Sen.value=='Level')">
+    <app-card cardTitle="List of Flame Sensors" blockClass="table-border-style">
+      <div class="table-bordered">
+        <table class="table table-flame">
+          <thead>
+          <tr class="test">
+            <th>Id</th>
+            <th>Added Date</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Depot</th>
+            <th>Rayon</th>
+            <th>Trash Id</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let fl of flammes">
+            <td>{{ fl._id.slice(16,24) }}</td>
+            <td>{{ fl.addedDateF.slice(4,16) }}</td>
+            <td >
+              <span *ngIf="fl.availabiltyF == 'In use'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{fl.availabiltyF}}
+              </span>
+              <span *ngIf="fl.availabiltyF == 'Available !'" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.availabiltyF}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="fl.statusF =='CRITICAL'" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.statusF}}
+              </span>
+              <span *ngIf="fl.statusF =='RAS'" style="background-color: darkgreen;  color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">{{ fl.statusF}}
+              </span>
+            </td>
+            <td>{{ fl.depotF }}</td>
+            <td>{{ fl.rayonF}}</td>
+            <td>{{ fl.trashIdF}}</td>
+
+            <td>
+              <button type="button" (click)="DeleteFlamme(fl._id)" class="btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <button (click)="toAddFlamme()" type="submit" class="btn btn-block btn-primary mb-4"><i class="feather icon-plus-circle"></i>Add Flamme Sensor </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ flame-table ] end -->
+</div>
+

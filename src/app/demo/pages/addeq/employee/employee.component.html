@@ -1,0 +1,139 @@
+<div>
+  <div class="test">
+    <div class="col-sm-12">
+      <app-card cardTitle="Add an Employee">
+<div>
+        <h5 class="test4">Add an Employee</h5>
+</div>
+        <hr>
+        <img  src="assets/images/employee.png" alt="" class="imgSensor">
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <form action="javascript:">
+
+              <div class="form-group">
+                <h6 for="FirstName"><h6>First Name</h6></h6>
+                <input #EmpFN type="text" class="form-control" id="FirstName" aria-describedby="FirstName" placeholder="FirstName">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              </div>
+
+              <div class="form-group">
+                <h6 for="LastName">Last Name</h6>
+                <input #EmpLN type="text" class="form-control" id="LastName" aria-describedby="LastName" placeholder="LastName">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              </div>
+
+              <div class="form-group">
+                <h6 for="Username">Username</h6>
+                <input #EmpUN type="text" class="form-control" id="Username" aria-describedby="Username" placeholder="Username">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              </div>
+
+              <div class="form-group">
+                <h6 for="Password">Password</h6>
+                <input #EmpPwd type="password" class="form-control" id="Password" aria-describedby="Password" placeholder="Password">
+                <!--
+                              <small id="PwdlHelp" class="form-text text-muted">Password must contains maj min and numbers</small>
+                -->
+              </div>
+              <a class="alert" form [hidden]="hidepass">* Password must containt at least one UPPERCASE one lowercase and a digit
+                <br>* Minimal length should be 8</a>
+
+              <!--            <div class="form-group">
+                            <h6 for="Password">Confirm Your Password</h6>
+                            <input type="password" class="form-control" id="confirm Password" aria-describedby="Password" placeholder="Confirm Your Password">
+                          </div>-->
+
+              <div class="form-group">
+                <h6 for="CINNumber">CIN Number</h6>
+                <input #EmpCin type="number" class="form-control" id="CINNumber" aria-describedby="CINNumber" placeholder="CINNumber">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              </div>
+
+              <a class="alert" form [hidden]="hidecin">* Please enter a valid CIN number (8 digits) </a>
+
+              <div class="form-group">
+                <h6 for="BirthDate">Birth Date</h6>
+                <input #EmpBD type="date" class="form-control" id="BirthDate" aria-describedby="BirthDate" placeholder="BirthDate">
+              </div>
+              <a class="alert" form [hidden]="hidedb">* Please enter a valid birthdate </a>
+              <div class="form-group">
+                <h6 for="Email">Email</h6>
+                <input #EmpEmail type="email" class="form-control" id="Email" aria-describedby="Email" placeholder="Email">
+                <!--
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                -->
+              </div>
+              <a class="alert" form [hidden]="hideemail">* Please enter a valid email address</a>
+
+              <div class="form-group">
+                <h6 for="City">City</h6>
+                <select #EmpC class="form-control" id="City" aria-describedby="City">
+                  <option *ngFor="let region of regions">{{region.Label}}</option>
+                </select>
+              </div>
+
+              <!--            <div class="form-group">
+                            <h6 for="Municipality">Municipality</h6>
+                            <select class="form-control" id="Municipality" aria-describedby="Municipality">
+                              <option>Rawed</option><option>Ghazela</option>
+                            </select>
+                          </div>-->
+
+              <div class="form-group">
+                <h6 for="address">address</h6>
+                <input #EmpAdd type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address">
+              </div>
+
+              <div class="form-group">
+                <h6 for="Post">Post</h6>
+                <select #EmpPost class="form-control" id="Post" aria-describedby="Post">
+                  <option>Driver</option>
+                  <option>Conveyor</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="Municipality"><h6>Municipality</h6></label>
+                <select #EmpMun class="form-control" id="Municipality">
+                  <option>Municipality 1</option>
+                  <option>Municipality 2</option>
+                  <option>Municipality 3</option>
+                  <option>Municipality 4</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <h6 for="WorkingArea">Working Area</h6>
+                <select #EmpWA class="form-control" id="WorkingArea" aria-describedby="WorkingArea">
+                  <option>Area 1</option>
+                  <option>Area 2</option>
+                </select>
+              </div>
+
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <h6 class="form-check-label" for="exampleCheck1">Validate</h6>
+              </div>
+
+              <button
+                (click)="Verif(EmpFN.value,EmpLN.value,EmpUN.value,EmpPwd.value,EmpCin.value,
+                EmpBD.value,EmpEmail.value,EmpC.value,EmpAdd.value,EmpPost.value,EmpMun.value,EmpWA.value)"
+                type="submit" class="btn btn-block btn-primary mb-4 feather icon-user-plus"> Add Employee
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>
+
+<!--
+
+(click)="createEmployee(EmpFN.value,EmpLN.value,EmpUN.value,EmpPwd.value,EmpCin.value,
+EmpBD.value,EmpEmail.value,EmpC.value,EmpAdd.value,EmpPost.value,EmpWA.value)"
+(click)="createEmployeeLogin(EmpEmail.value,EmpPwd.value )"
+              -->

@@ -1,0 +1,121 @@
+<div class="test">
+  <div class="col-sm-12">
+    <app-card cardTitle="Add Equipements" [options]="false">
+      <div>
+        <h5 class="test4">Add a Trash Can</h5>
+      </div>
+      <hr>
+      <img  src="assets/images/trash.png" alt="" class="imgtrash">
+      <hr>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form action="javascript:">
+
+            <!--
+                        <div class="form-group">
+                          <label><h6>title</h6></label>
+                          <input #trashTitleInput type="text" class="form-control"  aria-describedby="addedDate" placeholder="">
+                        </div>
+            -->
+
+            <div class="form-group">
+              <label for="City"><h6>City</h6></label>
+              <select #TCity class="form-control" id="City">
+                <option>City 1</option>
+                <option>City 2</option>
+                <option>City 3</option>
+                <option>City 4</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Municipality"><h6>Municipality</h6></label>
+              <select #TMun class="form-control" id="Municipality">
+                <option>Municipality 1</option>
+                <option>Municipality 2</option>
+                <option>Municipality 3</option>
+                <option>Municipality 4</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Area"><h6>Area</h6></label>
+              <select #TArea class="form-control" id="Area">
+                <option>Area 1</option>
+                <option>Area 2</option>
+                <option>Area 3</option>
+                <option>Area 4</option>
+              </select>
+            </div>
+
+
+
+            <div class="form-group">
+              <img  *ngIf="TrashFlamme.value.length != 0" src="assets/images/flamme.png" alt="" class="imgSensor">
+              <label for="flamme" *ngIf="TrashFlamme.value.length != 0">
+                <h5 style="color: green">Your Trash will be automatically equiped by an available <br> Flamme Sensor</h5>
+              </label>
+              <select #TrashFlamme class="form-control" id="flamme" size="1" disabled [hidden]="hide">
+                <option *ngFor="let TF of flammes"> {{TF._id }}
+                </option>
+              </select>
+              <img  *ngIf="TrashFlamme.value.length == 0" src="assets/images/notFlamme.png" alt="" class="imgSensor">
+              <label *ngIf="TrashFlamme.value.length == 0" >
+                <h5 class="alert">*All Flamme sensors are already used</h5>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <img  *ngIf="TrashGas.value.length != 0" src="assets/images/gas.png" alt="" class="imgSensor">
+              <label for="gas" *ngIf="TrashGas.value.length != 0">
+                <h5 style="color: green">Your Trash will be automatically equiped by an available <br>gas Sensor</h5>
+              </label>
+              <select #TrashGas class="form-control" id="gas" size="1" disabled [hidden]="hide">
+                <option *ngFor="let TG of gases" >{{TG._id}}
+                </option>
+              </select>
+              <img  *ngIf="TrashGas.value.length == 0" src="assets/images/notGas.png" alt="" class="imgSensor">
+              <label *ngIf="TrashGas.value.length == 0">
+                <h5 class="alert" >*All Gas sensors are already used</h5>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <img  *ngIf="TrashLevel.value.length != 0" src="assets/images/level.png" alt="" class="imgSensor">
+              <label for="level" *ngIf="TrashLevel.value.length != 0">
+                <h5 style="color: green">Your Trash will be automatically equiped by an available <br> Level Sensor</h5>
+              </label>
+              <select #TrashLevel class="form-control" id="level" size="1" disabled [hidden]="hide">
+                <option *ngFor="let TL of levels" >{{ TL._id }}</option>
+              </select>
+              <img  *ngIf="TrashLevel.value.length == 0" src="assets/images/notLevel.png" alt="" class="imgSensor">
+              <label *ngIf="TrashLevel.value.length == 0">
+                <h5 class="alert">*All Level sensors are already used</h5>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <img  *ngIf="TrashWeight.value.length != 0" src="assets/images/weight.png" alt="" class="imgSensor">
+              <label *ngIf="TrashWeight.value.length != 0" for="weight">
+                <h5 style="color: green">Your Trash will be automatically equiped by an available <br> Weight Sensor</h5>
+              </label>
+              <select #TrashWeight class="form-control" id="weight" size="1" disabled [hidden]="hide">
+                <option *ngFor="let TW of weights" >{{ TW._id }}</option>
+              </select>
+              <img  *ngIf="TrashWeight.value.length == 0" src="assets/images/notWeight.png" alt="" class="imgSensor">
+              <label *ngIf="TrashWeight.value.length == 0">
+                <h5 class="alert" >*All Weight sensors are already used</h5>
+              </label>
+            </div>
+            <button
+              (click)="createTrash(TCity.value,TMun.value,TArea.value,TrashFlamme.value,TrashGas.value,TrashLevel.value,TrashWeight.value)"
+              type="submit" class="btn btn-block btn-primary mb-4 feather icon-trash-2"> Add Trash
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

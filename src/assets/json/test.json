@@ -1,0 +1,10 @@
+[
+  {
+    "wileya": "Grand Tunis",
+	"blasa": ["one","two","three"]
+  },
+  {
+    "wileya": "Sousse",
+	"blasa": ["four","five","six"]
+  }
+]

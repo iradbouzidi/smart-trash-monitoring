@@ -1,0 +1,165 @@
+<!--<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Much longer nav link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>-->
+
+<div class="container emp-profile">
+  <!--  <form method="post">-->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+<!--        <img src="assets/images/logo_pi.png" alt=""/>-->
+
+        <div>
+          <div class="col-md-12" *ngFor="let empl of emp">
+            <div *ngFor=" let wor of workers">
+              <div *ngIf="wor.emailE == empl.emailE">
+                <img src="{{wor.imageE}}" class="avatar img-circle img-thumbnail" alt="avatar"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head">
+        <br><p></p>
+        <h4 *ngFor="let empl of emp">
+          <span *ngFor="let wor of workers">
+            <span *ngIf="empl.emailE == wor.emailE">
+              <label>hello {{wor.userNameE}}</label>
+            </span>
+          </span>
+          <br>
+          <p></p>
+        </h4>
+
+        <h5>We'll be happy to hear your feedbacks about our work!</h5>
+        <p class="proile-rating"></p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <!--<li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+          </li>-->
+          <!--<li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+    <!--<div class="col-md-2">
+      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" (click)="editprofile()"/>
+    </div>-->
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-work">
+        <p></p>
+        <!--          <a href="">Website Link</a><br/>-->
+        <!--          <a href="">Bootsnipp Profile</a><br/>-->
+        <!--          <a href="">Bootply Profile</a>-->
+        <div><hr color="#0062cc"></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="profile"
+                   value="Profile" (click)="profilew()"/>
+          </div>
+        </div>
+
+        <div><hr></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="editprofile"
+                   value="Edit Profile" (click)="editprofilew()"/>
+          </div>
+        </div>
+
+        <div><hr></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="listreports"
+                   value="Visualize Reports" (click)="listreportsw()"/>
+          </div>
+        </div>
+
+        <div><hr></div>
+        <div class="row" >
+          <div class="col-md-7">
+            <input type="submit" class="profile-edit-btn" name="listreports"
+                   value="Log Out" (click)="logout()"/>
+          </div>
+        </div>
+        <div><hr color="#0062cc"></div>
+
+        <!--          <p>SKILLS</p>-->
+        <!--          <a href="">Web Designer</a><br/>-->
+        <!--          <a href="">Web Developer</a><br/>-->
+        <!--          <a href="">WordPress</a><br/>-->
+        <!--          <a href="">WooCommerce</a><br/>-->
+        <!--          <a href="">PHP, .Net</a><br/>-->
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content profile-tab" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+          <div class="row">
+            <div class="col-md-12">
+              <label class="labels">Feel free to type up a constructive report.<br>
+                We, SMART TRASH CAN team, will work hard to respond to your demand and fix the problem.</label>
+            </div>
+            <p></p>
+          </div>
+          <p></p>
+
+          <div class="col-md-6">
+            <label class="labels">Email:</label><br>
+            <!--            <input #emailR type="text" placeholder="Email..." class="form-control">-->
+            <select #emailR class="form-control" id="email" size="1" disabled>
+              <option *ngFor="let empl of emp"> {{empl.emailE }}
+              </option>
+            </select>
+          </div>
+          <!--          <div class="col-md-6">
+                      <label class="labels">Cin:</label><br>
+                      <input #cinR type="number" placeholder="Cin..." class="form-control">
+                    </div>-->
+          <p></p>
+          <div class="col-md-6">
+            <label class="labels">Subject:</label><br>
+            <input #subject type="text" placeholder="Subject..." class="form-control">
+          </div>
+
+
+          <div class="col-md-6">
+            <label class="labels">Content:</label><br>
+          </div>
+          <div class="col-md-10">
+            <textarea #content class="form-control" rows="5" cols="10" placeholder="Content..."></textarea>
+          </div>
+          <p></p>
+        </div>
+
+      </div>
+      <div><hr color="#0062cc"></div>
+      <div class="row" >
+        <div class="col-md-7">
+          <input type="submit" class="edit-profile-btn" name="sendreport"
+                 value="Send Report" (click)="sendreport(emailR.value,subject.value,content.value)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  </form>-->
+
+</div>
+

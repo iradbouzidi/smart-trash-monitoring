@@ -1,0 +1,90 @@
+<div class="row">
+  <!-- [ Hover-table ] start -->
+  <div class="col-xl-12">
+    <app-card cardTitle="List of Citizens" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr class="test">
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Cin</th>
+            <th>Birthday</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let client of clients">
+            <td class="feather icon-user"><!--{{ client._id.slice(16,24) }}--></td>
+            <td>{{ client.firstNameC }}</td>
+            <td>{{ client.lastNameC }}</td>
+            <td>{{ client.cinC}}</td>
+            <td>{{ client.birthDateC.slice(0,10)}}</td>
+            <td>{{ client.emailC}}</td>
+            <td>{{ client.cityC }}</td>
+            <td>{{ client.addressC }}</td>
+            <td>
+              <button type="button" (click)="DeleteClient(client._id)" class="btn btn-primary"><i class="feather icon-delete"></i></button><span> </span>
+<!--              <button type="button" (click)="SendMail(client.emailC)" class="btn btn-primary"><i class="feather icon-mail"></i></button>-->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ Hover-table ] end -->
+
+
+</div>
+<div class="row">
+  <!-- [ Hover-table ] start -->
+  <div class="col-xl-12">
+    <app-card cardTitle="List of Employees" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr class="test">
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Cin</th>
+            <th>Birthday</th>
+            <th>Email</th>
+            <th>City</th>
+            <!--            <th>Municipality</th>-->
+            <th>Address</th>
+            <th>Post</th>
+            <th>Working Area</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2">
+          <tr *ngFor="let employee of employees">
+            <td class="feather icon-user"><!--{{ employee._id.slice(16,24)}}--></td>
+            <td>{{ employee.firstNameE }}</td>
+            <td>{{ employee.lastNameE }}</td>
+            <td>{{ employee.cinE }}</td>
+            <td>{{ employee.birthDateE.slice(0,10) }}</td>
+            <td>{{ employee.emailE }}</td>
+            <td>{{ employee.cityE }}</td>
+            <td>{{ employee.addressE }}</td>
+            <td>{{ employee.postE }}</td>
+            <td>{{ employee.workingAreaE }}</td>
+            <td>
+              <button type="button" (click)="DeleteEmployee(employee._id)" class="btn btn-primary"><i class="feather icon-delete"></i></button><span> </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ Hover-table ] end -->
+
+
+</div>

@@ -1,0 +1,185 @@
+<div class="col-md-12">
+  <button type="button" (click)="AddTruck()" class="  btn btn-block btn-primary mb-4"><i class="feather icon-alert-triangle"></i>  Add Truck</button>
+</div>
+<br>
+<br>
+<div class="test4">
+  <div class="form-group">
+    <div class="col-md-12">
+      <h6 for="Area" class="test4">Area</h6>
+      <select #EmpA class="form-control" id="Area" aria-describedby="Area" >
+        <option>All</option>
+        <option>Area 1</option>
+        <option>Area 2</option>
+        <option>Area 3</option>
+        <option>Area 4</option>
+      </select>
+      <h6 for="Area" class="test4">Choose the Working Area </h6>
+    </div>
+  </div>
+</div>
+<img src="assets/images/trucks.png" alt="" class="imgSensor">
+<div class="row">
+  <!-- [ Hover-table ] start -->
+  <div class="col-xl-12">
+    <app-card cardTitle="List of trucks" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr class="test">
+            <th>#</th>
+            <th>Working Area </th>
+            <th>Added Date</th>
+            <th>Driver</th>
+            <th>Conveyor</th>
+            <th>Level sensor</th>
+            <th>Weight Sensor</th>
+            <th>Weight Action</th>
+          </tr>
+          </thead>
+          <tbody class="test2" [hidden]= "EmpA.value != 'All'">
+          <tr *ngFor="let truck of trucks">
+            <td>{{ truck._id.slice(16,24) }}</td>
+            <td>{{ truck.workingAreaT }}</td>
+            <td>{{ truck.addedDateT.slice(4,16)}}</td>
+            <td>
+              <span *ngFor=" let emp of employees ">
+                <span *ngIf="truck.driverT==emp._id">
+                  {{ emp.userNameE}}
+                </span>
+              </span>
+            </td>
+            <td>
+              <span *ngFor=" let emp of employees ">
+                <span *ngIf="truck.conveyorT==emp._id">
+                  {{ emp.userNameE}}
+                </span>
+              </span>
+            </td>
+            <td>
+              <span *ngFor=" let level of levels ">
+                <span *ngIf="truck.levelIdT==level._id">
+                  <span *ngIf="level.statusL > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                  <span *ngIf="level.statusL > 50 && level.statusL< 70" style="background-color: darkorange; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                  <span *ngIf="level.statusL < 50" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{level.statusL}}
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td>
+              <span *ngFor=" let weight of weights ">
+                <span *ngIf="truck.weightIdT==weight._id">
+                  <span *ngIf="weight.statusW > 70" style="background-color: red; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                  <span *ngIf="weight.statusW > 50 && weight.statusW< 70" style="background-color: darkorange; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                  <span *ngIf="weight.statusW < 50" style="background-color: darkgreen; color: white; font-weight: bold;  text-decoration: underline; font-size: 16px ">
+                    {{weight.statusW}}
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td>
+              <button type="button"
+                      (click)="updateDriverA(truck.driverT)"
+                      (click)="updateConveyorA(truck.conveyorT)"
+                      (click)="updateWeightA(truck.weightIdT)"
+                      (click)="updateLevelA(truck.levelIdT)"
+                      (click)="DeleteTruck(truck._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Delete Truck Only</button><!--<a>| / |</a>-->
+            </td>
+          </tr>
+
+          </tbody>
+          <tbody class="test2" [hidden]= "EmpA.value != 'Area 1'">
+          <tr *ngFor="let truck of trucks1">
+            <td>{{ truck._id.slice(16,24) }}</td>
+            <td>{{ truck.workingAreaT }}</td>
+            <td>{{ truck.addedDateT.slice(4,16)}}</td>
+            <td>{{ truck.driverT.slice(16,24) }}</td>
+            <td>{{ truck.conveyorT.slice(16,24) }}</td>
+            <td>{{ truck.levelIdT.slice(16,24) }}</td>
+            <td>{{ truck.weightIdT.slice(16,24) }}</td>
+            <td>
+              <button type="button"
+                      (click)="updateDriverA(truck.driverT)"
+                      (click)="updateConveyorA(truck.conveyorT)"
+                      (click)="updateWeightA(truck.weightIdT)"
+                      (click)="updateLevelA(truck.levelIdT)"
+                      (click)="DeleteTruck(truck._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Delete Truck Only</button><!--<a>| / |</a>-->
+            </td>
+          </tr>
+
+          </tbody>
+          <tbody class="test2" [hidden]= "EmpA.value != 'Area2'">
+          <tr *ngFor="let truck of trucks2">
+            <td>{{ truck._id.slice(16,24) }}</td>
+            <td>{{ truck.workingAreaT }}</td>
+            <td>{{ truck.addedDateT.slice(4,16)}}</td>
+            <td>{{ truck.driverT.slice(16,24) }}</td>
+            <td>{{ truck.conveyorT.slice(16,24) }}</td>
+            <td>{{ truck.levelIdT.slice(16,24) }}</td>
+            <td>{{ truck.weightIdT.slice(16,24) }}</td>
+            <td>
+              <button type="button"
+                      (click)="updateDriverA(truck.driverT)"
+                      (click)="updateConveyorA(truck.conveyorT)"
+                      (click)="updateWeightA(truck.weightIdT)"
+                      (click)="updateLevelA(truck.levelIdT)"
+                      (click)="DeleteTruck(truck._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Delete Truck Only</button><!--<a>| / |</a>-->
+            </td>
+          </tr>
+
+          </tbody>
+          <tbody class="test2" [hidden]= "EmpA.value != 'Area 3'">
+          <tr *ngFor="let truck of trucks3">
+            <td>{{ truck._id.slice(16,24) }}</td>
+            <td>{{ truck.workingAreaT }}</td>
+            <td>{{ truck.addedDateT.slice(4,16)}}</td>
+            <td>{{ truck.driverT.slice(16,24) }}</td>
+            <td>{{ truck.conveyorT.slice(16,24) }}</td>
+            <td>{{ truck.levelIdT.slice(16,24) }}</td>
+            <td>{{ truck.weightIdT.slice(16,24) }}</td>
+            <td>
+              <button type="button"
+                      (click)="updateDriverA(truck.driverT)"
+                      (click)="updateConveyorA(truck.conveyorT)"
+                      (click)="updateWeightA(truck.weightIdT)"
+                      (click)="updateLevelA(truck.levelIdT)"
+                      (click)="DeleteTruck(truck._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Delete Truck Only</button><!--<a>| / |</a>-->
+            </td>
+          </tr>
+
+          </tbody>
+          <tbody class="test2" [hidden]= "EmpA.value != 'Area 4'">
+          <tr *ngFor="let truck of trucks4">
+            <td>{{ truck._id.slice(16,24) }}</td>
+            <td>{{ truck.workingAreaT }}</td>
+            <td>{{ truck.addedDateT.slice(4,16)}}</td>
+            <td>{{ truck.driverT.slice(16,24) }}</td>
+            <td>{{ truck.conveyorT.slice(16,24) }}</td>
+            <td>{{ truck.levelIdT.slice(16,24) }}</td>
+            <td>{{ truck.weightIdT.slice(16,24) }}</td>
+            <td>
+              <button type="button"
+                      (click)="updateDriverA(truck.driverT)"
+                      (click)="updateConveyorA(truck.conveyorT)"
+                      (click)="updateWeightA(truck.weightIdT)"
+                      (click)="updateLevelA(truck.levelIdT)"
+                      (click)="DeleteTruck(truck._id)" class="  btn btn-block btn-primary mb-4"><i class="feather icon-delete"></i>Delete Truck Only</button><!--<a>| / |</a>-->
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+  <!-- [ Hover-table ] end -->
+</div>

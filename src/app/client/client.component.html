@@ -1,0 +1,191 @@
+<!--
+
+<div class="test">
+  <div class="col-sm-9">
+    <app-card cardTitle="Add an Employee">
+      <h5>Add an Employee</h5>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="javascript:">
+
+            <div class="form-group">
+              <label for="FirstName">First Name</label>
+              <input #CltFN type="text" class="form-control" id="FirstName" aria-describedby="FirstName" placeholder="FirstName">
+              &lt;!&ndash;<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;
+            </div>
+
+            <div class="form-group">
+              <label for="LastName">Last Name</label>
+              <input #CltLN type="text" class="form-control" id="LastName" aria-describedby="LastName" placeholder="LastName">
+              &lt;!&ndash;<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;
+            </div>
+
+            &lt;!&ndash;
+                        <div class="form-group">
+                          <label for="Username">Username</label>
+                          <input #EmpUN type="text" class="form-control" id="Username" aria-describedby="Username" placeholder="Username">
+                          &lt;!&ndash;<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;
+                        </div>
+
+                        <div class="form-group">
+                          <label for="Password">Password</label>
+                          <input #EmpPwd type="password" class="form-control" id="Password" aria-describedby="Password" placeholder="Password">
+                          <small id="PwdlHelp" class="form-text text-muted">Password must contains maj min and numbers</small>
+                        </div>
+            &ndash;&gt;
+
+            &lt;!&ndash;            <div class="form-group">
+                          <label for="Password">Confirm Your Password</label>
+                          <input type="password" class="form-control" id="confirm Password" aria-describedby="Password" placeholder="Confirm Your Password">
+                        </div>&ndash;&gt;
+
+            <div class="form-group">
+              <label for="CINNumber">CIN Number</label>
+              <input #CltCin type="number" class="form-control" id="CINNumber" aria-describedby="CINNumber" placeholder="CINNumber">
+              &lt;!&ndash;<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>&ndash;&gt;
+            </div>
+
+            <div class="form-group">
+              <label for="BirthDate">Birth Date</label>
+              <input #CltBD type="date" class="form-control" id="BirthDate" aria-describedby="BirthDate" placeholder="BirthDate">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input #CltEmail type="email" class="form-control" id="Email" aria-describedby="Email" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="City">City</label>
+              <select #CltC class="form-control" id="City" aria-describedby="City">
+                <option>Tunis</option><option>Bizerte</option><option>Sidi Bouzid</option>
+              </select>
+            </div>
+
+            &lt;!&ndash;            <div class="form-group">
+                          <label for="Municipality">Municipality</label>
+                          <select class="form-control" id="Municipality" aria-describedby="Municipality">
+                            <option>Rawed</option><option>Ghazela</option>
+                          </select>
+                        </div>&ndash;&gt;
+
+            <div class="form-group">
+              <label for="address">address</label>
+              <input #CltAdd type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address">
+            </div>
+
+            &lt;!&ndash;            <div class="form-group">
+                          <label for="Post">Post</label>
+                          <select #EmpPost class="form-control" id="Post" aria-describedby="Post">
+                            <option>Driver</option>
+                            <option>Conveyor</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="WorkingArea">Working Area</label>
+                          <select #EmpWA class="form-control" id="WorkingArea" aria-describedby="WorkingArea">
+                            <option>Area 1</option>
+                            <option>Area 2</option>
+                          </select>
+                        </div>&ndash;&gt;
+
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Validate</label>
+            </div>
+
+            <button (click)="createClient(CltFN.value,CltLN.value,CltCin.value,CltBD.value,CltEmail.value,CltC.value,
+            CltAdd.value)"
+                    type="submit" class="btn btn-primary">
+              Submit
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+-->
+<!--<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            &lt;!&ndash;
+                        <img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
+            &ndash;&gt;
+            <h2 class="mb-3 f-w-400">Create your Profile</h2>
+            <h6>First Name</h6>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-user"></i></span>
+              </div>
+              <input #CltFN type="text" class="form-control" placeholder="First Name">
+            </div>
+            <h6>Last Name</h6>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-user"></i></span>
+              </div>
+              <input #CltLN type="text" class="form-control" placeholder="Last Name">
+            </div>
+            <h6>Cin</h6>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-filter"></i></span>
+              </div>
+              <input #CltCin type="number" class="form-control" placeholder="Cin">
+            </div>
+            <h6>Date Of Birth</h6>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-calendar"></i></span>
+              </div>
+              <input #CltBD type="Date" class="form-control" placeholder="Date Of Birth">
+            </div>
+                        <h6>Email</h6>
+                        <div class="input-group mb-4">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="feather icon-mail"></i></span>
+                          </div>
+                          <input #CltEmail type="email" class="form-control" placeholder="Email">
+                        </div>
+            <h6>City</h6>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-flag"></i></span>
+              </div>
+              <select #CltC class="form-control" id="City" aria-describedby="City">
+                <option>Tunis</option><option>Bizerte</option><option>Sidi Bouzid</option>
+              </select>
+            </div>
+            <h6>Address</h6>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="feather icon-more-vertical"></i></span>
+              </div>
+              <input #CltAdd type="text" class="form-control" placeholder="Address">
+            </div>
+
+            <div class="form-group text-left mt-2">
+              <div class="checkbox checkbox-primary d-inline">
+                <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2">
+                <label for="checkbox-fill-2" class="cr">I'm not a robot</label>
+              </div>
+            </div>
+            <button (click)="createClient(CltFN.value,CltLN.value,CltCin.value,CltBD.value,CltEmail.value,CltC.value,
+            CltAdd.value)"
+                    type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
